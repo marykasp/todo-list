@@ -78,8 +78,10 @@ const displayTodos = () => {
     // change classList of span based on category
     if(todo.category === 'personal') {
       span.classList.add('personal')
-    } else {
+    } else if(todo.category === 'work') {
       span.classList.add('work')
+    }else {
+      span.classList.add('bubble')
     }
     // append input and span to label element - children
     label.appendChild(input);
