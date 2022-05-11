@@ -41,8 +41,11 @@ window.addEventListener('load', () => {
 
     // Display todos to app
     displayTodos();
-    // console.log(todos)
+    console.log(todos)
   })
+
+  // display todos in local storage when window loads
+  displayTodos();
 })
 
 // FUNCTIONS
@@ -112,7 +115,7 @@ const displayTodos = () => {
     // add event listener to checkbox input to check if todo item is done
     input.addEventListener('click', e => {
       todo.done = e.target.checked;
-      // update todos on local storage to reflect if done property is true or false
+      // update todos on local storage since todo property was updated
       localStorage.setItem('todos', JSON.stringify(todos))
 
       if(todo.done) {
@@ -127,5 +130,28 @@ const displayTodos = () => {
 
 
     // add event listener to edit button
+    edit.addEventListener('click', e => {
+      // turn the todo-content input to not readonly
+      const input = content.querySelector('input');
+      input.removeAttribute('readonly');
+      input.focus();
+      // when click outside of input field will stop editing
+      input.addEventListener('blur', e => {
+        input.setAttribute('readonly', true);
+        todo.content = e.target.value;
+        localStorage.setItem('todos', JSON.stringify(todos));
+        displayTodos();
+      })
+
+    })
+
+    // add event listener to delete button
+    deleteButton.addEventListener('click', e => {
+      // only keep todos that do not equal the todo clicked on - todo clicked on is removed from the global todos array
+      todos = todos.filter(t => t != todo);
+      // reset the todos in local storage
+      localStorage.setItem('todos', JSON.stringify(todos));
+      displayTodos();
+    })
   })
 }
