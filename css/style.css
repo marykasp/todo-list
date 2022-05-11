@@ -51,7 +51,7 @@ section {
 
 h3 {
   color: var(--dark);
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 400;
   margin-bottom: 0.5rem;
 }
@@ -61,6 +61,12 @@ h4 {
   font-size: 0.875rem; /* 14px */
   font-weight: 700;
   margin-bottom: 0.8rem;
+}
+
+.app {
+  /* border: 1px solid var(--primary); */
+  max-width: 500px;
+  margin: 1rem auto;
 }
 
 .greeting .title {
@@ -239,4 +245,19 @@ input:checked ~ .bubble::after {
 
 .todo-item.done .todo-content input {
   text-decoration: line-through;
+  color: var(--grey);
+}
+
+@media screen and (max-width: 600px )  {
+  .app {
+    max-width: 400px;
+    padding: 0 1rem;
+    margin: 0 0.5rem;
+    /* background-color: var(--third); */
+  }
+
+  input[type="text"] {
+    width: 100%;
+  }
+
 }
