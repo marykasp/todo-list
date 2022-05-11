@@ -211,14 +211,35 @@ input:checked ~ .bubble::after {
 
 /* reset select dropdown */
 .select {
-  padding: 0.5rem 1rem;
-  color: var(--dark);
-  background-color: #fff;
+    /* replace default styling */
   border: none;
   outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><polygon points="0,0 100,1 50,50" style="fill:%23666666;" /></svg>');
+  background-position: right 10px top 50%;
+  background-repeat: no-repeat;
+  background-size: 10px;
+
+  padding: 0.5rem 1.6rem 0.5rem 1rem;
+  color: var(--dark);
+  background-color: #fff;
   box-shadow: var(--shadow);
   cursor: pointer;
   border-radius: 0.2rem;
+  transition: 0.3s ease-in-out;
+}
+
+.select:focus,
+.select:hover {
+  outline: none;
+  border: 1px solid var(--personal);
+  box-shadow: var(--shadow);
+}
+
+.select option {
+  background-color: #fff;
 }
 
 .todo-list .list {
