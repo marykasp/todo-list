@@ -90,7 +90,7 @@ const displayTodos = () => {
     edit.classList.add('edit');
     deleteButton.classList.add('delete');
 
-    content.innerHTML = `<input type="text" value="${todo.content}" readonly />`
+    content.innerHTML = `<input class="content" type="text" value="${todo.content}" readonly />`
 
     edit.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>'
     deleteButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>'
@@ -112,46 +112,57 @@ const displayTodos = () => {
       todoItem.classList.add('done')
     }
 
+    // EVENT LISTENERS - pass in current todo item
     // add event listener to checkbox input to check if todo item is done
-    input.addEventListener('click', e => {
-      todo.done = e.target.checked;
-      // update todos on local storage since todo property was updated
-      localStorage.setItem('todos', JSON.stringify(todos))
-
-      if(todo.done) {
-        todoItem.classList.add('done')
-      } else {
-        todoItem.classList.remove('done')
-      }
-
-      // redisplay updated todos
-      displayTodos()
-    })
-
+    checkTodo(todo, input, todoItem)
 
     // add event listener to edit button
-    edit.addEventListener('click', e => {
-      // turn the todo-content input to not readonly
-      const input = content.querySelector('input');
-      input.removeAttribute('readonly');
-      input.focus();
-      // when click outside of input field will stop editing
-      input.addEventListener('blur', e => {
-        input.setAttribute('readonly', true);
-        todo.content = e.target.value;
-        localStorage.setItem('todos', JSON.stringify(todos));
-        displayTodos();
-      })
-
-    })
+    editTodo(todo, edit)
 
     // add event listener to delete button
-    deleteButton.addEventListener('click', e => {
-      // only keep todos that do not equal the todo clicked on - todo clicked on is removed from the global todos array
-      todos = todos.filter(t => t != todo);
-      // reset the todos in local storage
-      localStorage.setItem('todos', JSON.stringify(todos));
+    deleteTodos(todo, deleteButton)
+  })
+}
+
+const checkTodo = (todo,input, todoItem) => {
+  input.addEventListener('click', e => {
+    console.log(e.target)
+    todo.done = e.target.checked;
+    // update todos on local storage since todo property was updated
+    localStorage.setItem('todos', JSON.stringify(todos))
+
+    if(todo.done) {
+      todoItem.classList.add('done')
+    } else {
+      todoItem.classList.remove('done')
+    }
+
+    // redisplay updated todos
+    displayTodos()
+  })
+}
+
+const editTodo = (todo, edit) => {
+  edit.addEventListener("click", e => {
+    const input = document.querySelector('.content');
+
+    // remove readonly attribute
+    input.removeAttribute('readonly');
+    input.value = '';
+    input.focus();
+    input.addEventListener('blur', e => {
+      input.setAttribute('readonly', true)
+      todo.content = e.target.value;
+      localStorage.setItem('todos', JSON.stringify(todos))
       displayTodos();
     })
+  })
+}
+
+const deleteTodos = (todo, deleteButton) => {
+  deleteButton.addEventListener("click", () => {
+    todos = todos.filter(t => t != todo);
+    localStorage.setItem('todos', JSON.stringify(todos));
+    displayTodos()
   })
 }
