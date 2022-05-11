@@ -99,7 +99,7 @@ h4 {
   margin-bottom: 1.5rem;
 }
 
-.create-todo .options div {
+.create-todo .options label {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,4 +147,11 @@ input[type="checkbox"] {
 .bubble.personal::after {
   background-color: var(--personal);
   box-shadow: var(--personal-glow);
+}
+
+/* if input checked is next to a bubble span - show the bubble*/
+input:checked ~ .bubble::after {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
 }
