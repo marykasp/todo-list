@@ -5,21 +5,18 @@ window.addEventListener('load', () => {
   // SELECTORS
   const nameInput = document.querySelector('#name');
   const newTodoForm = document.querySelector('#new-todo-form');
-  // const search = document.querySelector('#search');
 
 
   // get the username and set the nameInput to that value
   const username = localStorage.getItem('username') || '';
   nameInput.value = username;
 
-  // ******** Event Listeners ************
   // event listener on name input - store input value to localStorage
   nameInput.addEventListener("change", (e) => {
     localStorage.setItem('username', e.target.value);
   });
 
-  // event listener on search input
-  // search.addEventListener('keyup', searchItems)
+  // event listener of keyup on search input
 
   // event listener - form submission
   newTodoForm.addEventListener("submit", e => {
@@ -58,6 +55,7 @@ window.addEventListener('load', () => {
 const displayTodos = () => {
   // select todo list div that contains the todo items
   const todoList = document.querySelector('#todo-list');
+  const search = document.querySelector('#search');
 
   todoList.innerHTML = '';
 
@@ -129,8 +127,20 @@ const displayTodos = () => {
 
     // add event listener to delete button
     deleteTodos(todo, deleteButton)
+
+    search.addEventListener('keyup',(e) => {
+      const term = e.target.value.trim().toLowerCase();
+      if(!todo.content.toLowerCase().includes(term)) {
+      // add a filtered class to todo
+        todoItem.classList.add('filtered')
+      } else {
+        todoItem.classList.remove('filtered')
+      }
+    });
+
   })
 }
+
 
 const checkTodo = (todo,input, todoItem) => {
   input.addEventListener('click', e => {
@@ -173,19 +183,4 @@ const deleteTodos = (todo, deleteButton) => {
     localStorage.setItem('todos', JSON.stringify(todos));
     displayTodos()
   })
-}
-
-
-function filterTodos(term) {
-    console.log(term)
-    // iterate over the todo items and return todos that do not match the term
-
-}
-
-// Seach todos
-function searchItems() {
-  console.log(search)
-  // get value from search input
-  const term = search.value.trim().toLowerCase();
-  filterTodos(term)
 }

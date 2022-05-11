@@ -293,6 +293,10 @@ input:checked ~ .bubble::after {
   flex: 1 1 0%;
 }
 
+.todo-item.filtered {
+  display: none !important;
+}
+
 .todo-item .todo-content input {
   color: var(--dark);
   font-size: 1.125rem;
