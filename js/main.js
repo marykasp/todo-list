@@ -41,18 +41,18 @@ window.addEventListener('load', () => {
 
     // Display todos to app
     displayTodos();
+    // console.log(todos)
   })
 })
 
 // FUNCTIONS
-
 const displayTodos = () => {
   // select todo list div that contains the todo items
   const todoList = document.querySelector('#todo-list');
 
   todoList.innerHTML = '';
 
-  // have access to global todos array variable where the todo items are stored
+  // have access to global todos array variable where the todo items are stored - iterate over each todo and create a new todoItem
   todos.forEach(todo => {
     // create an element for each todo
     const todoItem = document.createElement('div');
@@ -87,7 +87,8 @@ const displayTodos = () => {
     edit.classList.add('edit');
     deleteButton.classList.add('delete');
 
-    content.innerHTML =  `<input type="text" value=${todo.content} readonly>`
+    content.innerHTML = `<input type="text" value="${todo.content}" readonly />`
+
     edit.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>'
     deleteButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>'
 

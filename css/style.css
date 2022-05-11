@@ -131,7 +131,12 @@ input[type="checkbox"] {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 2px solid var(--work);
+  border: 2px solid var(--primary);
+  box-shadow: var(--primary-glow);
+}
+
+.bubble.work {
+  border-color: var(--work);
   box-shadow: var(--work-glow);
 }
 
@@ -146,10 +151,15 @@ input[type="checkbox"] {
   opacity: 0;
   width: 0px;
   height: 0px;
-  background-color: var(--work);
-  box-shadow: var(--work-glow);
+  background-color: var(--primary);
+  box-shadow: var(--primary-glow);
   border-radius: 50%;
   transition: 0.2s ease-in-out;
+}
+
+.bubble.work::after {
+  background-color: var(--work);
+  box-shadow: var(--work-glow);
 }
 
 .bubble.personal::after {
