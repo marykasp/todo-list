@@ -54,6 +54,25 @@
           <input type="submit" value="Add todo" />
         </form>
       </section>
+      <section class="select-todos">
+        <div class="search-todos">
+          <label for="search">Search todos:</label>
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="e.g. walk dog"
+          />
+        </div>
+        <div class="filter-todos">
+          <select class="select" name="filter" id="filter">
+            <option disabled selected></option>
+            <option value="all">All</option>
+            <option value="complete">Complete</option>
+            <option value="incomplete">Incomplete</option>
+          </select>
+        </div>
+      </section>
       <section class="todo-list">
         <h3>Todo List</h3>
         <div class="list" id="todo-list">

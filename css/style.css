@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,400&display=swap');
 
 :root {
   /* embers color palette */
@@ -38,6 +38,7 @@ input:not([type="radio"]):not([type="checkbox"]), button {
   background: none;
   cursor: initial;
 }
+
 
 body {
   background: var(--light);
@@ -185,6 +186,39 @@ input:checked ~ .bubble::after {
 
 .create-todo input[type="submit"]:hover {
   opacity: 0.75;
+}
+
+/* search & filter todos */
+.select-todos {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.search-todos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 0%;
+}
+
+.search-todos label {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--personal);
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+/* reset select dropdown */
+.select {
+  padding: 0.5rem 1rem;
+  color: var(--dark);
+  background-color: #fff;
+  border: none;
+  outline: none;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  border-radius: 0.2rem;
 }
 
 .todo-list .list {
