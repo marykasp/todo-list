@@ -103,5 +103,29 @@ const displayTodos = () => {
 
     // append new todoItem to todoList
     todoList.appendChild(todoItem)
+
+    // strikethrough todo if checked
+    if(todo.done) {
+      todoItem.classList.add('done')
+    }
+
+    // add event listener to checkbox input to check if todo item is done
+    input.addEventListener('click', e => {
+      todo.done = e.target.checked;
+      // update todos on local storage to reflect if done property is true or false
+      localStorage.setItem('todos', JSON.stringify(todos))
+
+      if(todo.done) {
+        todoItem.classList.add('done')
+      } else {
+        todoItem.classList.remove('done')
+      }
+
+      // redisplay updated todos
+      displayTodos()
+    })
+
+
+    // add event listener to edit button
   })
 }
