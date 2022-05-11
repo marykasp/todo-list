@@ -20,6 +20,7 @@
   --shadow: 0 1px 3px rgba(0,0,0,0.1);
   --work-glow: 0px 0px 4px rgb(58, 130, 238, 0.75);
   --personal-glow: 0px 0px 4px rgb(234, 64, 164,0.75);
+  --primary-glow: 0px 0px 4px rgb(65, 67, 106, 0.75);
 }
 
 * {
@@ -154,4 +155,32 @@ input:checked ~ .bubble::after {
   width: 10px;
   height: 10px;
   opacity: 1;
+}
+
+.create-todo .options label div {
+  font-size: 1.125rem;
+  margin-top: 1rem;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.create-todo input[type="submit"] {
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  background: var(--primary);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--primary-glow);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.create-todo input[type="submit"]:hover {
+  opacity: 0.75;
+}
+
+.todo-list .list {
+  margin: 1rem 0;
 }
