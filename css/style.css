@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&display=swap');
+
+:root {
+  /* embers color palette */
+  --first: var(var(--primary));
+  --second: #984063;
+  --third: #F64668;
+  --fourth: #fe9677;
+
+  /* main colors */
+  --primary: #41436A;
+  --work: #3A82EE;
+  --personal: #EA40A4;
+  --light: #eee;
+  --grey: #aaa;
+  --dark: #313154;
+  --danger: #ff5b57;
+
+  /* box shadows */
+  --shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --work-glow: 0px 0px 4px rgb(58, 130, 238, 0.75);
+  --personal-glow: 0px 0px 4px rgb(234, 64, 164,0.75);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'montserrat', sans-serif;
+}
+
+/* reset the text inputs */
+input:not([type="radio"]):not([type="checkbox"]), button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: initial;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+}
+
+section {
+  margin: 2rem 0;
+  padding: 0 1.5rem;
+}
+
+h3 {
+  color: var(--dark);
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  color: var(--grey);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.greeting .title {
+  display: flex;
+}
+
+.greeting .title input {
+  margin-left: 0.5rem;
+  flex: 1 1 0%;
+  min-width: 0;
+}
