@@ -56,7 +56,9 @@
       </section>
       <section class="select-todos">
         <div class="search-todos">
-          <label for="search">Search todos:</label>
+          <label for="search"
+            ><i class="fa-solid fa-magnifying-glass"></i>Search todos:</label
+          >
           <input
             type="text"
             name="search"
@@ -65,6 +67,7 @@
           />
         </div>
         <div class="filter-todos">
+          <label for="filter">Filter Todos:</label>
           <select class="select" name="filter" id="filter">
             <option disabled selected></option>
             <option value="all">All</option>
@@ -76,8 +79,8 @@
       <section class="todo-list">
         <h3>Todo List</h3>
         <div class="list" id="todo-list">
-          <!-- todo item -->
-          <div class="todo-item">
+          <!-- todo item --->
+          <!-- <div class="todo-item">
             <label>
               <input type="checkbox" />
               <span class="bubble work"></span>
@@ -93,25 +96,7 @@
                 <i class="fa-solid fa-trash-can"></i>
               </button>
             </div>
-          </div>
-          <!-- todo item -->
-          <div class="todo-item done">
-            <label>
-              <input type="checkbox" />
-              <span class="bubble personal"></span>
-            </label>
-            <div class="todo-content">
-              <input type="text" value="Wash dishes" readonly />
-            </div>
-            <div class="actions">
-              <button class="edit">
-                <i class="fa-solid fa-pen-to-square"></i>
-              </button>
-              <button class="delete">
-                <i class="fa-solid fa-trash-can"></i>
-              </button>
-            </div>
-          </div>
+          </div> -->
         </div>
       </section>
     </main>
