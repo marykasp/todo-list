@@ -5,20 +5,22 @@ window.addEventListener('load', () => {
   // SELECTORS
   const nameInput = document.querySelector('#name');
   const newTodoForm = document.querySelector('#new-todo-form');
+  const search = document.querySelector('#search');
+  const filter = document.querySelector('#filter');
 
 
   // get the username and set the nameInput to that value
   const username = localStorage.getItem('username') || '';
   nameInput.value = username;
 
-  // event listener on name input - store input value to localStorage
+  // ** Event Listener on name input - store input value to localStorage
   nameInput.addEventListener("change", (e) => {
     localStorage.setItem('username', e.target.value);
   });
 
   // event listener of keyup on search input
 
-  // event listener - form submission
+  // ** Event Listener - form submission
   newTodoForm.addEventListener("submit", e => {
     e.preventDefault();
     // console.log(e.target.elements)
@@ -44,8 +46,8 @@ window.addEventListener('load', () => {
 
     // Display todos to app
     displayTodos();
-    console.log(todos)
-  })
+
+  });
 
   // display todos in local storage when window loads
   displayTodos();
@@ -55,7 +57,6 @@ window.addEventListener('load', () => {
 const displayTodos = () => {
   // select todo list div that contains the todo items
   const todoList = document.querySelector('#todo-list');
-  const search = document.querySelector('#search');
 
   todoList.innerHTML = '';
 
@@ -123,23 +124,26 @@ const displayTodos = () => {
     checkTodo(todo, input, todoItem)
 
     // add event listener to edit button
-    editTodo(todo, edit)
+    editTodo(todo, edit, content)
 
     // add event listener to delete button
     deleteTodos(todo, deleteButton)
 
-    search.addEventListener('keyup',(e) => {
+    // add event listener for search event
+    search.addEventListener("keyup", (e) => {
       const term = e.target.value.trim().toLowerCase();
+      // check if todo content matches the term, if not add filtered class
       if(!todo.content.toLowerCase().includes(term)) {
-      // add a filtered class to todo
         todoItem.classList.add('filtered')
       } else {
         todoItem.classList.remove('filtered')
       }
     });
 
-  })
-}
+     // add event listener to dropdown menu to filter todos based on completion - can use the done property of the todo object
+
+  });
+} // end of displaytodo function
 
 
 const checkTodo = (todo,input, todoItem) => {
@@ -160,10 +164,10 @@ const checkTodo = (todo,input, todoItem) => {
   })
 }
 
-const editTodo = (todo, edit) => {
+const editTodo = (todo, edit, content) => {
   edit.addEventListener("click", e => {
-    const input = document.querySelector('.content');
-
+    const input = content.querySelector('.content');
+    console.log(input)
     // remove readonly attribute
     input.removeAttribute('readonly');
     input.value = '';
