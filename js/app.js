@@ -5,8 +5,6 @@ window.addEventListener('load', () => {
   // SELECTORS
   const nameInput = document.querySelector('#name');
   const newTodoForm = document.querySelector('#new-todo-form');
-  const search = document.querySelector('#search');
-  const filter = document.querySelector('#filter');
 
 
   // get the username and set the nameInput to that value
@@ -23,6 +21,7 @@ window.addEventListener('load', () => {
   // ** Event Listener - form submission
   newTodoForm.addEventListener("submit", e => {
     e.preventDefault();
+    console.log(e.target.elements)
     // console.log(e.target.elements)
     const todo = {
       // input with name content, get the value
@@ -145,6 +144,8 @@ const displayTodos = () => {
   });
 } // end of displaytodo function
 
+const search = document.querySelector('#search');
+const filter = document.querySelector('#filter');
 
 const checkTodo = (todo,input, todoItem) => {
   input.addEventListener('click', e => {
